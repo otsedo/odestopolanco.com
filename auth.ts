@@ -48,6 +48,7 @@ export const config = {
     CredentialsProvider({
       id: "username-password-login",
       name: "user and password",
+      // @ts-ignore
       async authorize(credentials, req) {
         const encodedCredentials = encodeBase64(
           `${credentials.username}:${credentials.password}`
@@ -88,13 +89,14 @@ export const config = {
       if (user) {
         return {
           ...token,
-          jwt: user.jwt,
+          // jwt: user.jwt,
         };
       }
       return token;
     },
     session: async ({ session, token }) => {
       if (token) {
+        // @ts-ignore
         session.jwt = token.jwt;
       }
       return session;
