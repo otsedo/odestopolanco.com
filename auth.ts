@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextAuthConfig } from "next-auth";
 
 import { encodeBase64 } from "./lib/utils";
+import GitHub from "next-auth/providers/github";
 
 const API_USER_BY_EMAIL_END_POINT: string =
   process.env.API_USER_BY_EMAIL_END_POINT || "";
@@ -43,7 +44,7 @@ export const config = {
     logo: "https://odestopolanco.netlify.app/_next/static/media/logo.23423a84.svg",
   },
   providers: [
-    // GitHub,
+    GitHub,
     CredentialsProvider({
       id: "username-password-login",
       name: "user and password",
