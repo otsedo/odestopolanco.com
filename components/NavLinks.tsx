@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import { FaTimes, FaBars } from "react-icons/fa";
 
-const NavLinks = () => {
+export default function NavLinks() {
   const [nav, setNav] = useState(false)
   return (
     <>
@@ -12,6 +12,8 @@ const NavLinks = () => {
         <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Blog</Link></li>
         <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>More about me</Link></li>
         <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Contact</Link></li>
+        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signin'>Sign In</Link></li>
+        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signout'>Sign Out</Link></li>
       </ul>
 
       <div onClick={() => setNav(!nav)} className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden">
@@ -30,5 +32,3 @@ const NavLinks = () => {
     </>
   )
 }
-
-export default NavLinks
