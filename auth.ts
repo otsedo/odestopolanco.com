@@ -11,7 +11,6 @@ export const config = {
     logo: "https://odestopolanco.netlify.app/_next/static/media/logo.23423a84.svg",
   },
   providers: [
-    GitHub,
     CredentialsProvider({
       id: "username-password-login",
       name: "user and password",
@@ -31,9 +30,6 @@ export const config = {
         const jwt = response.access_token;
 
         const userData = await getUserData(String(credentials.username), jwt);
-        console.log(jwt);
-        console.log(userData);
-        console.log(userData);
 
         if (userData.active) {
           return {

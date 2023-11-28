@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import { SessionProvider } from 'next-auth/react'
 
 export const metadata: Metadata = {
   title: 'Odesto Polanco',
@@ -9,13 +10,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
-    <html lang="en">
-      <body>
-        <Navbar />
-        <main>
-          {children}
-        </main>
-      </body>
-    </html>
+    <SessionProvider>
+      <html lang="en">
+
+        <body>
+          <Navbar />
+          <main>
+            {children}
+          </main>
+        </body>
+      </html>
+    </SessionProvider>
   )
 }
