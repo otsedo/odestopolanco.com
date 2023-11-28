@@ -4,40 +4,7 @@ import type { NextAuthConfig } from "next-auth";
 
 import { encodeBase64 } from "./lib/utils";
 import GitHub from "next-auth/providers/github";
-
-const API_USER_BY_EMAIL_END_POINT: string =
-  process.env.API_USER_BY_EMAIL_END_POINT || "";
-const AUTHENTICATION_SCOPE: string = process.env.AUTHENTICATION_SCOPE || "";
-const AUTH_SERVER_URL: string = process.env.AUTHENTICATION_URL || "";
-const AUTHENTICATION_GRANT_TYPE: string =
-  process.env.AUTHENTICATION_GRANT_TYPE || "";
-
-async function getJwt(credentials: string) {
-  const response = await fetch(AUTH_SERVER_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      Authorization: `Basic ${credentials}`,
-    },
-    body: new URLSearchParams({
-      grant_type: AUTHENTICATION_GRANT_TYPE,
-      scope: AUTHENTICATION_SCOPE,
-    }),
-  });
-  const data = await response.json();
-  return data;
-}
-
-async function getUserData(email: String, jwt: string) {
-  const response = await fetch(`${API_USER_BY_EMAIL_END_POINT}${email}`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-    },
-  });
-  const data = await response.json();
-  return data;
-}
+import { getJwt, getUserData } from "./lib/data";
 
 export const config = {
   theme: {
@@ -57,12 +24,16 @@ export const config = {
         const response = await getJwt(encodedCredentials);
 
         if (response?.error) {
+          console.log(response);
           return null;
         }
 
         const jwt = response.access_token;
 
         const userData = await getUserData(String(credentials.username), jwt);
+        console.log(jwt);
+        console.log(userData);
+        console.log(userData);
 
         if (userData.active) {
           return {
