@@ -1,49 +1,75 @@
+'use client';
+
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { FaTimes, FaBars } from "react-icons/fa";
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
+import { links as LinksArray } from '../lib/links'
 
 export default function NavLinks() {
   const { status } = useSession();
   const [nav, setNav] = useState(false)
+  const pathname = usePathname();
+  console.log(LinksArray)
+
 
   return (
     <>
       <ul className='hidden md:flex'>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Inicio</Link></li>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Portafolio</Link></li>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Blog</Link></li>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Acerca de mi</Link></li>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Contacto</Link></li>
-
+        {LinksArray.map((link) => (
+          (!link.protected || (status === 'authenticated' && link.protected)) && (
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                className={clsx(
+                  'px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all',
+                  { 'text-secondaryBlue font-bold': pathname === link.href }
+                )}
+              >
+                {link.name}
+              </Link>
+            </li>
+          )
+        ))}
         {status === "authenticated" ? (
-          <>
-            <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/admin'>Admin</Link></li><li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signout'>Sign Out</Link></li>
-          </>
+          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signout'>Sign Out</Link></li>
         ) : (
           <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signin'>Sign In</Link></li>
         )}
-
-      </ul>
+      </ul >
 
       <div onClick={() => setNav(!nav)} className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden">
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
-      {nav && (
-        <ul className='flex flex-col gap-8 justify-center items-center absolute top-0 left-0 w-full h-screen text-blue-100'>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Inicio</Link></li>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Portafolio</Link></li>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Blog</Link></li>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Acerca de mi</Link></li>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Contacto</Link></li>
-          {status === "authenticated" ? (
-            <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signout'>Sign Out</Link></li>
-          ) : (
-            <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signin'>Sign In</Link></li>
-          )}
-        </ul>
-      )}
+      {
+        nav && (
+          <ul className='flex flex-col gap-8 justify-center items-center absolute top-0 left-0 w-full h-screen text-blue-100 bg-darkBlue opacity-90 '>
+            {LinksArray.map((link) => (
+              (!link.protected || (status === 'authenticated' && link.protected)) && (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className={clsx(
+                      'px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all',
+                      { 'text-secondaryBlue font-bold': pathname === link.href }
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              )
+            ))}
+            {status === "authenticated" ? (
+              <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signout'>Sign Out</Link></li>
+            ) : (
+              <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signin'>Sign In</Link></li>
+            )}
+          </ul >
+        )
+      }
     </>
   )
 }
