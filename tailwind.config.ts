@@ -10,8 +10,8 @@ const config: Config = {
     screens: {
       sm: "480px",
       md: "768px",
-      lg: "1020px",
-      xl: "1440px",
+      lg: "1326px",
+      xl: "1800px",
     },
     extend: {
       colors: {

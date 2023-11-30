@@ -7,8 +7,8 @@ import Logo from '../public/assets/img/logo.svg'
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between items-center w-full h-40 px-2 md:px-24 md:pr-48'>
-      <div className="logo-container">
+    <div className='flex justify-between items-center w-full h-40 px-2 lg:px-16 xl:pr-48 md:pr-3  ' >
+      <div className="logo-container lg:ml-7 ">
         <Link href='/'>
           <Image alt='picture of Odesto Polanco' src={Logo} height={100} width={200} id='logo' />
         </Link>
