@@ -16,10 +16,10 @@ export default function NavLinks() {
         <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>More about me</Link></li>
         <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Contact</Link></li>
 
-
-
         {status === "authenticated" ? (
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signout'>Sign Out</Link></li>
+          <>
+            <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/admin'>Admin</Link></li><li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signout'>Sign Out</Link></li>
+          </>
         ) : (
           <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signin'>Sign In</Link></li>
         )}

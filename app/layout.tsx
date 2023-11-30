@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import { SessionProvider } from 'next-auth/react'
-import { poppins } from '@/components/ui/fonts'
+import { inter } from '@/components/ui/fonts'
 
 export const metadata: Metadata = {
   title: 'Odesto Polanco',
@@ -13,7 +13,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <SessionProvider>
       <html lang="en">
-        <body className={`${poppins.className} antialiased`}>
+        <body className={`${inter.className} antialiased bg-darkBlue text-lightBlue`}>
           <Navbar />
           <main >
             {children}

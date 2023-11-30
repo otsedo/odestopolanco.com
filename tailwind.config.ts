@@ -7,7 +7,20 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "1020px",
+      xl: "1440px",
+    },
+    extend: {
+      colors: {
+        darkBlue: "hsl(220, 24%, 7%)",
+        lightBlue: "hsl(221, 100%, 91%)",
+        primaryBlue: "#314FE6",
+        secondaryBlue: "#57B4FD",
+      },
+    },
   },
   plugins: [],
 };
