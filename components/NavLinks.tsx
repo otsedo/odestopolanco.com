@@ -10,11 +10,11 @@ export default function NavLinks() {
   return (
     <>
       <ul className='hidden md:flex'>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Home</Link></li>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Portfolio</Link></li>
+        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Inicio</Link></li>
+        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Portafolio</Link></li>
         <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Blog</Link></li>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>More about me</Link></li>
-        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Contact</Link></li>
+        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Acerca de mi</Link></li>
+        <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='#'>Contacto</Link></li>
 
         {status === "authenticated" ? (
           <>
@@ -32,11 +32,11 @@ export default function NavLinks() {
 
       {nav && (
         <ul className='flex flex-col gap-8 justify-center items-center absolute top-0 left-0 w-full h-screen text-blue-100'>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Home</Link></li>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Portfolio</Link></li>
+          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Inicio</Link></li>
+          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Portafolio</Link></li>
           <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Blog</Link></li>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>More about me</Link></li>
-          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Contact</Link></li>
+          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Acerca de mi</Link></li>
+          <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/'>Contacto</Link></li>
           {status === "authenticated" ? (
             <li className='px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all'><Link href='/api/auth/signout'>Sign Out</Link></li>
           ) : (
