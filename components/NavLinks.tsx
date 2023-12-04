@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { FaTimes, FaBars } from "react-icons/fa";
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import { links as LinksArray } from '../lib/links'
+import { links as LinksArray } from '../lib/data'
 
 export default function NavLinks() {
   const [nav, setNav] = useState(false)

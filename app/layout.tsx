@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <SessionProvider>
-      <html lang="en">
+      <html lang="en" className="scroll-smooth">
         <body className={`${inter.className} antialiased bg-darkBlue text-lightBlue`}>
           <Navbar />
           <main >

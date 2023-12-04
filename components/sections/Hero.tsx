@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 import Link from 'next/link'
 
 const Hero = () => {
   return (
-    <section className='grid md:grid-cols-6 w-full '>
+    <section className='grid md:grid-cols-6 w-11/12 '>
 
       <div className='flex col-span-3 justify-center items-center mx-5 my-5  suyo-0 image-container '>
         <Image
