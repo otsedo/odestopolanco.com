@@ -3,6 +3,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import { SessionProvider } from 'next-auth/react'
 import { inter } from '@/components/ui/fonts'
+import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
   title: 'Odesto Polanco',
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
           <main >
             {children}
           </main>
+          <Footer />
         </body>
       </html>
     </SessionProvider >

@@ -1,4 +1,4 @@
-import { skillsArray } from '@/lib/data'
+import { skillsArray } from '@/lib/constants'
 import SkillCard from '../ui/SkillCard'
 
 const skills = () => {
