@@ -56,7 +56,6 @@ export async function getJwt(credentials: string) {
 
 export const links = [
   { name: "Home", href: "/", protected: false },
-  { name: "Blog", href: "/blog", protected: false },
   { name: "Skills", href: "/#skills", protected: false },
   { name: "Acerca de mi", href: "/acerca-de-mi", protected: false },
   { name: "Contacto", href: "/contacto", protected: false },

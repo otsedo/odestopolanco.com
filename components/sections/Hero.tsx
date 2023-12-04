@@ -19,8 +19,8 @@ const Hero = () => {
       <div className='col-span-3 md:my-auto mt-5 lg:ml-28'>
         <h1 className='text-5xl md:text-7xl text-center mb-11'>Hola, soy <span className='text-primaryBlue font-medium'>Odesto</span>!</h1>
         <p className='mx-10 text-lg mb-10'>
-          Mi nombre es <span className='text-primaryBlue'>Odesto Polanco Rodríguez</span>, ingeniero en sistemas de la República Dominicana en plena transición de Backend Developer a Full Stack Developer. <br /><br />
-          Durante los últimos 3 años, he focalizado mi carrera en la integración con diversos sistemas, destacando experiencias en plataformas como IBMi (AS400), IBM App Connect, Websphere MQ, entre otras. Además, he trabajado de manera destacada en el desarrollo de integraciones utilizando <span className='text-primaryBlue'>Java y Spring framework</span>.
+          Mi nombre es <span className='text-secondaryBlue'>Odesto Polanco Rodríguez</span>, ingeniero en sistemas de la República Dominicana en plena transición de Backend Developer a Full Stack Developer. <br /><br />
+          Durante los últimos 3 años, he focalizado mi carrera en la integración con diversos sistemas, destacando experiencias en plataformas como IBMi (AS400), IBM App Connect, Websphere MQ, entre otras. Además, he trabajado de manera destacada en el desarrollo de integraciones utilizando <span className='text-secondaryBlue'>Java y Spring framework</span>.
         </p>
 
         <div className='flex justify-start mx-10'>
