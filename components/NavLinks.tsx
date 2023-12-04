@@ -13,23 +13,20 @@ export default function NavLinks() {
 
   return (
     <>
-      <ul className='hidden md:flex'>
+      <ul className='hidden md:flex md:pr-36'>
         {LinksArray.map((link) => (
-          (!link.protected || (status === 'authenticated' && link.protected)) && (
-            <li key={link.name}>
-              <Link
-                href={link.href}
-                className={clsx(
-                  'px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all',
-                  { 'text-secondaryBlue font-bold': pathname === link.href }
-                )}
-              >
-                {link.name}
-              </Link>
-            </li>
-          )
+          <li key={link.name}>
+            <Link
+              href={link.href}
+              className={clsx(
+                'px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all',
+                { 'text-secondaryBlue font-bold': pathname === link.href }
+              )}
+            >
+              {link.name}
+            </Link>
+          </li>
         ))}
-
       </ul >
 
       <div onClick={() => setNav(!nav)} className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden">
@@ -40,21 +37,18 @@ export default function NavLinks() {
         nav && (
           <ul className='flex flex-col gap-8 justify-center items-center absolute top-0 left-0 w-full h-screen text-blue-100 bg-darkBlue opacity-90 '>
             {LinksArray.map((link) => (
-              (!link.protected || (status === 'authenticated' && link.protected)) && (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className={clsx(
-                      'px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all',
-                      { 'text-secondaryBlue font-bold': pathname === link.href }
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              )
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  className={clsx(
+                    'px-4 cursor-pointer capitalize font-medium text-blue-100 hover:text-blue-700 hover:transition-all',
+                    { 'text-secondaryBlue font-bold': pathname === link.href }
+                  )}
+                >
+                  {link.name}
+                </Link>
+              </li>
             ))}
-
           </ul >
         )
       }
