@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className='grid md:grid-cols-6 w-11/12 '>
 
-      <div className='flex col-span-3 justify-center items-center mx-5 my-5  suyo-0 image-container '>
+      <div className='flex col-span-3 justify-center items-center mx-1 my-5 image-container '>
         <Image
           src='/assets/img/profile.png'
           width={550}
@@ -25,7 +25,7 @@ const Hero = () => {
 
         <div className='flex justify-start mx-10'>
           <Button className="w-60 justify-center shadow-md shadow-blue-500/20">
-            <Link href='/admin'>Más Información sobre mi</Link>
+            <Link href='/acerca-de-mi'>Más Información sobre mi</Link>
           </Button>
         </div>
       </div>
