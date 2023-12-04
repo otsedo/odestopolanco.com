@@ -6,6 +6,16 @@ const Hero = () => {
   return (
     <section className='grid md:grid-cols-6 w-full '>
 
+      <div className='flex col-span-3 justify-center items-center mx-5 my-5  suyo-0 image-container '>
+        <Image
+          src='/assets/img/profile.png'
+          width={550}
+          height={0}
+          alt='Profile picture'
+          className='rounded-3xl shadow-md shadow-blue-500/20'
+        />
+      </div>
+
       <div className='col-span-3 md:my-auto mt-5 lg:ml-28'>
         <h1 className='text-5xl md:text-7xl text-center mb-11'>Hola, soy <span className='text-primaryBlue font-medium'>Odesto</span>!</h1>
         <p className='mx-10 text-lg mb-10'>
@@ -20,15 +30,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className='flex col-span-3 justify-center items-center mx-5 my-5  suyo-0 image-container '>
-        <Image
-          src='/assets/img/profile.png'
-          width={550}
-          height={0}
-          alt='Profile picture'
-          className='rounded-3xl shadow-md shadow-blue-500/20'
-        />
-      </div>
+
     </section >
   )
 }
