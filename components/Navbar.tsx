@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className='flex justify-between items-center w-full h-40 px-1 lg:px-16  md:pr-3 lg:mx-0' >
       <div className="logo-container lg:ml-7 xl:mx-20">
         <Link href='/'>
-          <Image alt='picture of Odesto Polanco' src={Logo} height={100} width={200} id='logo' />
+          <Image alt='logo' src={Logo} height={100} width={200} id='logo' priority={true} />
         </Link>
       </div>
       <NavLinks />
