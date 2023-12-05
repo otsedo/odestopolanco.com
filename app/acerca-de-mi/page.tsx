@@ -33,7 +33,7 @@ const page = () => {
             </p>
 
             <p className='mb-8 mr-14'>
-              Mi experiencia también abarca la creación de diversas APIs y microservicios, haciendo uso de tecnologías como <span className='text-secondaryBlue'>Java, Spring Boot, JPA, Java Message Service (JMS), JWT y SOAP</span>. En mi práctica diaria, considero de vital importancia la implementación de "clean code" y buenas prácticas, utilizando herramientas como SonarQube para el análisis de código. Asimismo, me aseguro de realizar pruebas unitarias con frameworks como <span className='text-secondaryBlue'>JUnit y Mockito</span>.
+              Mi experiencia también abarca la creación de diversas APIs y microservicios, haciendo uso de tecnologías como <span className='text-secondaryBlue'>Java, Spring Boot, JPA, Java Message Service (JMS), JWT y SOAP</span>. En mi práctica diaria, considero de vital importancia la implementación de &quot;clean code&quot; y buenas prácticas, utilizando herramientas como SonarQube para el análisis de código. Asimismo, me aseguro de realizar pruebas unitarias con frameworks como <span className='text-secondaryBlue'>JUnit y Mockito</span>.
             </p>
             <p className=' mr-14'>
               Adicionalmente, he trabajado tanto como administrador como desarrollador con tecnologías de <span className='text-secondaryBlue'>IBM Integration BUS (App Connect V12) y el IBM MQ</span>. Esta experiencia amplía mi conjunto de habilidades, permitiéndome abordar de manera integral proyectos que requieren tanto conocimientos de desarrollo como de administración de sistemas.
