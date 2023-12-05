@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className='grid md:grid-cols-6 w-11/12 '>
 
-      <div className='flex col-span-3 justify-center items-center mx-1 my-5 image-container '>
+      <div className='flex pl-6 col-span-3 justify-center md:items-center md:mx-1 md:my-5 md:image-container '>
         <Image
           src='/assets/img/profile.png'
           width={550}
