@@ -11,6 +11,7 @@ const page = () => {
         <div className='
         py-4 text-lg 
         lg:my-auto lg:flex lg:flex-col lg:ml-20 lg:text-base
+        xl:leading-7
         '>
           <p className='mx-3 lg:mx-8'>Mi nombre es <strong>Odesto Polanco</strong>, un entusiasta de la programación, la aviación, la tecnología y la fotografía. Me gradué como ingeniero en sistemas de la <span className='text-secondaryBlue'>Universidad Tecnológica de Santiago (UTESA)</span> en 2016. Soy dominicano y resido en mi ciudad natal, Santiago de los Caballeros.
           </p>
@@ -22,7 +23,7 @@ const page = () => {
       </div>
 
       <div className='
-      md:flex md:flex-col md:px-16 md:items-center lg:flex lg:flex-row-reverse lg:pr-16 lg:pl-1 px-2 py-10'>
+      md:flex md:flex-col md:px-16 md:items-center lg:flex lg:flex-row-reverse lg:pr-16 lg:pl-1 px-2 py-10 xl:leading-7'>
 
         <Image src='/assets/img/cockpit.jpg' width={700} height={700} alt={'picture of odesto polanco in a airplane cockpit'} className='rounded-2xl' />
         <div className='
