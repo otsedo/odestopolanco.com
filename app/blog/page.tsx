@@ -13,15 +13,8 @@ interface BlogPost {
   title: string;
   slug: string;
   excerpt: string;
-  content: string;
-  image: string;
   featured: string;
   feature_image: string;
-  author: any;
-  category: any;
-  published: boolean;
-  blog_category: { id: number; name: string }[];
-  blog_author: { id: number; name: string, photo_url: string }[];
 }
 
 const Blog = () => {
