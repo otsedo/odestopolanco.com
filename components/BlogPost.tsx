@@ -15,7 +15,6 @@ interface BlogPostProps {
     excerpt: string;
     featured: string;
     feature_image: string;
-    category: any;
   };
 }
 
