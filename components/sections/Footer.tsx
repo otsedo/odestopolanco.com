@@ -25,6 +25,7 @@ const Footer = () => {
           {footerLinks.map((link) => (
             <a href={link.url} key={link.id} className='my-1'>{link.name}</a>
           ))}
+          <a href='CV_Odesto_Polanco.pdf' target="blank">CV</a>
         </div>
       </div>
     </div>
