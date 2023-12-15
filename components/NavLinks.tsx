@@ -50,9 +50,11 @@ export default function NavLinks() {
                     {link.name}
                   </Link>
                 </li>
+
               ))}
+              <a href='CV_Odesto_Polanco.pdf' target="blank">CV</a>
             </ul >
-            <a href='CV_Odesto_Polanco.pdf' target="blank">CV</a>
+
           </>
         )
       }
