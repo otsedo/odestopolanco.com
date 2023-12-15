@@ -27,7 +27,6 @@ export default function NavLinks() {
             </Link>
           </li>
         ))}
-        <a href='CV_Odesto_Polanco.pdf' target="blank">CV</a>
       </ul >
 
       <div onClick={() => setNav(!nav)} className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden">
@@ -52,9 +51,7 @@ export default function NavLinks() {
                 </li>
 
               ))}
-              <a href='CV_Odesto_Polanco.pdf' target="blank">CV</a>
             </ul >
-
           </>
         )
       }
