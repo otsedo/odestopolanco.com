@@ -7,7 +7,7 @@ const Footer = () => {
 
       <div className='sm:mt-4 sm:w-full'>
         <p className='text-xl my-4 sm:w-full text-center'>Odesto Polanco</p>
-        <p className='text-base my-4 '>Mi nombre es Mi nombre es <span className='text-secondaryBlue'>Odesto Polanco Rodríguez</span>, ingeniero en sistemas de la República Dominicana en plena transición de Backend Developer a Full Stack Developer.</p>
+        <p className='text-base my-4 '>Mi nombre es <span className='text-secondaryBlue'>Odesto Polanco Rodríguez</span>, ingeniero en sistemas de la República Dominicana en plena transición de Backend Developer a Full Stack Developer.</p>
       </div>
 
       <div className='sm:my-2 mt-10'>
