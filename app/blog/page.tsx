@@ -2,7 +2,6 @@
 import BlogPost from "@/components/BlogPost";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { createClient } from "@supabase/supabase-js";
-import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 
@@ -34,9 +33,6 @@ const Blog = () => {
       if (error && status !== 406) {
         throw error
       }
-
-      console.log(data)
-
       if (data) {
         setPosts(data);
       }
@@ -52,21 +48,23 @@ const Blog = () => {
   }, [getBlogPost])
 
   return (
-    <div className="h-screen">
+    <div>
       <h1 className="flex flex-col">
-        <span className="block text-center  text-primaryBlue font-semibold tracking-wide text-5xl uppercase pb-4">Mi Blog</span>
-        <span className="block text-center text-secondaryBlue font-semibold tracking-wide text-xl p-4">Desde la sombra del backend hasta la luz del full stack</span>
+        <span className="block text-center  text-primaryBlue font-semibold tracking-wide text-5xl uppercase">Mi Blog</span>
+        <span className="block text-center text-secondaryBlue font-semibold tracking-wide text-xl">Desde la sombra del backend hasta la luz del full stack</span>
       </h1>
 
 
-      <div className="flex justify-center mt-20 mb-40">
-        <Image alt="under Construction image" src='/assets/img/under-Construction.png' width={200} height={200} />
+      <div className="mx-2 p-8">
+        {
+          posts ?
+            posts.map((post) => (
+              <BlogPost post={post} key={post.title} />
+            ))
+            :
+            (<p>No existen post</p>)
+        }
       </div>
-
-
-
-
-
     </div>
   )
 }

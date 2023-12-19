@@ -22,8 +22,6 @@ const BlogPost = ({ post }: BlogPostProps) => {
   return (
     <div>
 
-
-
       <Link href={`/blog/${post.slug}`}>
         <Image src={post.feature_image} height={1} width={500} alt={post.title} priority={true} className='rounded-xl' />
         <h2 className='text-lg text-left text-primaryBlue font-bold mt-2'>{post.title}</h2>
