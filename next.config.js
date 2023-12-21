@@ -10,7 +10,7 @@ module.exports = {
         protocol: "https",
         hostname: "uuxivmkunpjlrganwpsh.supabase.co",
         port: "",
-        pathname: "/storage/v1/object/public/blog_images/blog_images/**",
+        pathname: "/storage/v1/object/public/blog_images/**",
       },
     ],
   },
