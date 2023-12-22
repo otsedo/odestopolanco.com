@@ -1,7 +1,5 @@
-import { Spinner } from "@material-tailwind/react";
-
 const LoadingSpinner = () => {
-  return <Spinner />;
+  return <p className="text-lightBlue">Loading...</p>;
 }
 
 export default LoadingSpinner

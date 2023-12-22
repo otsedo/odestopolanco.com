@@ -4,11 +4,12 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Post } from './types'
 
-import { BlogPostProps } from './Types';
+
 import { formatDate } from '@/lib/utils';
 
-const PostCard = ({ post }: BlogPostProps) => {
+const PostCard = ({ post }: Post) => {
   if (!post) {
     return <p>Loading...</p>;
   }

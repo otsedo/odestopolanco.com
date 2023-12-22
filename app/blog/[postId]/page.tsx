@@ -1,28 +1,28 @@
 "use client"
 import PostCard from "@/components/PostCard";
-import { createClient } from "@supabase/supabase-js";
+import supabase from '../../../lib/supabase'
 import { useCallback, useEffect, useState } from "react";
-import { BlogPost } from "@/components/Types";
+import { QueryData } from "@supabase/supabase-js";
+import { Post } from '@/components/types'
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL || '', process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '');
+
+const postQuery = supabase.from('blog_post').select(`
+              created_at,title, content, image,excerpt,
+              blog_author (name, photo_url),
+              category (name)
+        `);
 
 export default function ProductDetail({
   params,
 }: {
   params: { postId: string };
 }) {
-  const [post, setPost] = useState<BlogPost>();
+  // const [post, setPost] = useState<QueryData<typeof postQuery>>([]);
+  const [post, setPost] = useState<typeof Post[]>([]);
+
   const getBlogPost = useCallback(async () => {
     try {
-      let { data, error, status } = await supabase
-        .from('blog_post')
-        .select(`
-              created_at,title, content, image,excerpt,
-              blog_author (name, photo_url),
-              category (name)
-        `)
-        .eq('slug', params.postId)
-        .single();
+      let { data, error, status } = await postQuery
 
       if (error && status === 406) {
         return <>
@@ -37,9 +37,8 @@ export default function ProductDetail({
 
     } catch (errorException) {
       console.log(errorException)
-
     }
-  }, [params.postId])
+  }, [])
 
   useEffect(() => {
     getBlogPost();
@@ -47,7 +46,7 @@ export default function ProductDetail({
 
   return (
     <>
-      <PostCard post={post} />
+      <PostCard post={post[0]} />
     </>
   );
 }

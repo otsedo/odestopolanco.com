@@ -1,45 +1,30 @@
 "use client"
 import BlogPost from "@/components/BlogPost";
-import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import { createClient } from "@supabase/supabase-js";
+import supabase from '../../lib/supabase'
 import { useCallback, useEffect, useState } from "react";
+import { QueryData } from '@supabase/supabase-js'
 
-
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL || '', process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '');
-
-interface BlogPost {
-  id: number;
-  created_at: Date;
-  title: string;
-  slug: string;
-  excerpt: string;
-  featured: string;
-  feature_image: string;
-}
+const postQuery = supabase.from('blog_post').select(`id, created_at, title, slug, excerpt, featured, feature_image`);
 
 const Blog = () => {
-
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-
+  const [posts, setPosts] = useState<QueryData<typeof postQuery>>([]);
 
   const getBlogPost = useCallback(async () => {
     try {
+      let { data, error, status } = await postQuery
 
-
-      let { data, error, status } = await supabase
-        .from('blog_post')
-        .select(`id, created_at, title, slug,excerpt,featured,feature_image`)
-
-      if (error && status !== 406) {
-        throw error
+      if (error && status === 406) {
+        return <>
+          <h1>No se encontró el post que buscaba</h1>
+        </>
       }
+
       if (data) {
-        setPosts(data);
+        setPosts(data)
       }
 
     } catch (errorException) {
       console.log(errorException)
-
     }
   }, [])
 
@@ -62,7 +47,7 @@ const Blog = () => {
               <BlogPost post={post} key={post.title} />
             ))
             :
-            (<p>No existen post</p>)
+            (<p>No se encontraron post</p>)
         }
       </div>
     </div>
