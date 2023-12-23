@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -19,6 +19,13 @@ const config: Config = {
         lightBlue: "hsl(221, 100%, 91%)",
         primaryBlue: "#314FE6",
         secondaryBlue: "#57B4FD",
+      },
+    },
+    typography: {
+      DEFAULT: {
+        css: {
+          maxWidth: "1100px",
+        },
       },
     },
   },
