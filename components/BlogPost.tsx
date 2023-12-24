@@ -17,8 +17,8 @@ const BlogPost = ({ post }: { post: PostWithAuthorCategoryType }) => {
       <p className='text-md text-left mt-2 md:text-xl'>{post.excerpt}</p>
       <div className='flex text-xs justify-start mt-2 '>
         <FaCalendarAlt size={14} /><span className='ml-1'></span> {formatDate(post.created_at)}
-        <FaTag size={14} className='ml-2' /><span className='mx-1'>{post.name}</span>
-        <CgProfile size={14} className='ml-2' /><span className='mx-1'>{post.name}</span>
+        <FaTag size={14} className='ml-2' /><span className='mx-1'>{post.category.name}</span>
+        <CgProfile size={14} className='ml-2' /><span className='mx-1'>{post.blog_author.name}</span>
       </div>
     </div>
   );

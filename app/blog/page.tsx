@@ -20,7 +20,7 @@ const Blog = () => {
       }
 
     } catch (errorException) {
-      // console.log(errorException)
+      console.log(errorException)
     }
   }, [])
 
