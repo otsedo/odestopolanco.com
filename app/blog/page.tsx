@@ -2,22 +2,17 @@
 import BlogPost from "@/components/BlogPost";
 import supabase from '../../lib/supabase'
 import { useCallback, useEffect, useState } from "react";
-import { QueryData } from '@supabase/supabase-js'
-
-const postQuery = supabase.from('blog_post').select(`id, created_at, title, slug, excerpt, featured, feature_image, blog_author (name),
-              category (name)`);
+import { PostWithAuthorCategoryType } from '@/types/Collections'
 
 const Blog = () => {
-  const [posts, setPosts] = useState<QueryData<typeof postQuery>>([]);
+  const [posts, setPosts] = useState<PostWithAuthorCategoryType[]>([]);
 
   const getBlogPost = useCallback(async () => {
     try {
-      let { data, error, status } = await postQuery
+      let { data, error, status } = await supabase.from('blog_post').select('*,blog_author(name),category(name)').eq('published', true)
 
       if (error && status === 406) {
-        return <>
-          <h1>No se encontró el post que buscaba</h1>
-        </>
+        throw error
       }
 
       if (data) {
@@ -25,14 +20,13 @@ const Blog = () => {
       }
 
     } catch (errorException) {
-      console.log(errorException)
+      // console.log(errorException)
     }
   }, [])
 
   useEffect(() => {
     getBlogPost();
   }, [getBlogPost])
-
   return (
     <>
       <p className="text-primaryBlue text-3xl font-semibold text-center mb-2 mx-2">Bienvenido a mi Blog</p>

@@ -4,20 +4,9 @@ import Link from 'next/link';
 import React from 'react'
 import { FaCalendarAlt, FaTag } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+import { PostWithAuthorCategoryType } from '@/types/Collections';
 
-interface BlogPostProps {
-  post: {
-    id: number;
-    created_at: Date;
-    title: string;
-    slug: string;
-    excerpt: string;
-    featured: string;
-    feature_image: string;
-  };
-}
-
-const BlogPost = ({ post }: BlogPostProps) => {
+const BlogPost = ({ post }: { post: PostWithAuthorCategoryType }) => {
   return (
     <div className='pb-12'>
       <Link href={`/blog/${post.slug}`}>
@@ -28,8 +17,8 @@ const BlogPost = ({ post }: BlogPostProps) => {
       <p className='text-md text-left mt-2 md:text-xl'>{post.excerpt}</p>
       <div className='flex text-xs justify-start mt-2 '>
         <FaCalendarAlt size={14} /><span className='ml-1'></span> {formatDate(post.created_at)}
-        <FaTag size={14} className='ml-2' /><span className='mx-1'>{post.category.name}</span>
-        <CgProfile size={14} className='ml-2' /><span className='mx-1'>{post.blog_author.name}</span>
+        <FaTag size={14} className='ml-2' /><span className='mx-1'>{post.name}</span>
+        <CgProfile size={14} className='ml-2' /><span className='mx-1'>{post.name}</span>
       </div>
     </div>
   );

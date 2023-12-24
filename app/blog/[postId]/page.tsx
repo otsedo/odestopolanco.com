@@ -2,20 +2,15 @@
 import PostCard from "@/components/PostCard";
 import supabase from '../../../lib/supabase'
 import { useCallback, useEffect, useState } from "react";
-import { Post } from '@/components/types'
+import { PostWithAuthorCategoryType } from '@/types/Collections'
 
 export default function ProductDetail({ params, }: { params: { postId: string }; }) {
 
-  const postQuery = supabase
-    .from('blog_post')
-    .select(`created_at,title, content, image,excerpt,blog_author (name, photo_url),category (name)`)
-    .eq('slug', params.postId);
-
-  const [post, setPost] = useState<typeof Post[]>([]);
+  const [post, setPost] = useState<PostWithAuthorCategoryType>();
 
   const getBlogPost = useCallback(async () => {
     try {
-      let { data, error, status } = await postQuery
+      let { data, error, status } = await supabase.from('blog_post').select('*,blog_author(name,photo_url),category(name)').eq('published', true).eq('slug', params.postId).single();
 
       if (error && status === 406) {
         return <>
@@ -24,22 +19,25 @@ export default function ProductDetail({ params, }: { params: { postId: string };
       }
 
       if (data) {
-        console.log(data)
         setPost(data);
       }
 
     } catch (errorException) {
       console.log(errorException)
     }
-  }, [postQuery])
+  }, [params.postId])
 
   useEffect(() => {
     getBlogPost();
   }, [getBlogPost])
 
+  if (!post) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
-      <PostCard post={post[0]} />
+      <PostCard post={post} />
     </>
   );
 }
