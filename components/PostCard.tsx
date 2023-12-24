@@ -12,25 +12,31 @@ import { FaCalendarAlt, FaTag } from 'react-icons/fa';
 import { CgProfile } from 'react-icons/cg';
 
 const PostCard = ({ post }: Post) => {
+  console.log(post)
   if (!post) {
     return <p>Loading...</p>;
   }
 
   return (
     <>
-      <div className='flex flex-col justify-center mx-2 lg:mx-auto h-max'>
-        <div className=' w-full lg:flex lg:m-auto lg:w-3/5'>
+      <div className='flex flex-col justify-center mx-2 lg:mx-auto h-max mb-8 '>
+        <div className=' w-full lg:flex lg:m-auto lg:w-3/5 mb-5'>
           <Image src={post.image} width={100} height={100} alt={post.title} layout="responsive" />
         </div>
-        <div className='lg:flex lg:mx-auto'>
-          <div className='flex items-center'>
-            <FaCalendarAlt size={18} /> <span className='m-2 text-lg'>{formatDate(post.created_at)}</span>
+        <div className='flex lg:flex-col'>
+          <div className='lg:flex lg:mx-auto lg:mt-5'>
+            <div className='flex items-center md:mr-4'>
+              <FaCalendarAlt size={18} /> <span className='m-1 text-lg'>{formatDate(post.created_at)}</span>
+            </div>
+            <div className='flex items-center'>
+              <FaTag size={18} /> <span className='m-1 text-lg md:mr-4'>{post.category.name}</span>
+            </div>
+            <div className='flex items-center'>
+              <CgProfile size={18} /> <span className='m-1 text-lg md:mr-4'>{post.blog_author.name}</span>
+            </div>
           </div>
-          <div className='flex items-center'>
-            <FaTag size={18} /> <span className='m-2 text-lg'>{post.category.name}</span>
-          </div>
-          <div className='flex items-center'>
-            <CgProfile size={18} /> <span className='m-2 text-lg'>{post.blog_author.name}</span>
+          <div className='flex items-center lg:flex-col mx-auto lg:items-baseline'>
+            <Image alt='author profile picture' src={post.blog_author.photo_url} width={100} height={12} className='rounded-full h-35 w-35 md:w-35 md:h-35 lg:w-50 lg:h-50' />
           </div>
         </div>
       </div>

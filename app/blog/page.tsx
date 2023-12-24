@@ -34,22 +34,20 @@ const Blog = () => {
   }, [getBlogPost])
 
   return (
-    <div className="px-4 
-    sm:flex sm:flex-col sm:items-center
-  
-    
-    
-    
-    ">
-      {
-        posts ?
-          posts.map((post) => (
-            <BlogPost post={post} key={post.title} />
-          ))
-          :
-          (<p>No se encontraron post</p>)
-      }
-    </div>
+    <>
+      <p className="text-primaryBlue text-3xl font-semibold text-center mb-2 mx-2">Bienvenido a mi Blog</p>
+      <p className="text-secondaryBlue text-lg font-semibold text-center  mx-2 mb-8 md:mb-16">Desde la sombra del backend hasta la luz del full stack</p>
+      <div className="flex flex-col mx-4 sm:items-center lg:grid lg:grid-cols-3 lg:gap-10 lg:w-10/12 lg:mx-auto">
+        {
+          posts ?
+            posts.map((post) => (
+              <BlogPost post={post} key={post.title} />
+            ))
+            :
+            (<p>No se encontraron post</p>)
+        }
+      </div>
+    </>
   )
 }
 
