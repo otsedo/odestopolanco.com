@@ -8,7 +8,7 @@ import { getJwt, getUserData } from "./lib/data";
 
 export const config = {
   theme: {
-    logo: "https://odestopolanco.netlify.app/_next/static/media/logo.23423a84.svg",
+    logo: "https://odestopolanco.com/_next/static/media/logo.23423a84.svg",
   },
   providers: [
     CredentialsProvider({
